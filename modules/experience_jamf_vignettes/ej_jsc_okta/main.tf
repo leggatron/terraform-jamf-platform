@@ -12,10 +12,8 @@ terraform {
   }
 }
 
-resource "jsc_ap" "content_filtering_only" {
-    name             = "Content Filtering"
-    oktaconnectionid = "66a2acb005cb1b0b0929295b"
-    privateaccess    = false
-    threatdefence    = false
-    datapolicy       = true
+resource "jsc_oktaidp" "okta_idp" {
+  clientid  = "0oa71hsl3q3umwKZz5d7"
+  name      = "okta idp"
+  orgdomain = "https://dev-13925600.okta.com"
 }
