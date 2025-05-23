@@ -346,6 +346,23 @@ module "configuration-jamf-security-cloud-all-services" {
   }
 }
 
+module "configuration-jamf-security-cloud-all-unsupervised" {
+  count                 = var.include_jsc_all_unsupervised == true ? 1 : 0
+  source                = "./modules/configuration-jamf-security-cloud-all-unsupervised"
+  entropy_string        = var.entropy_string
+  tje_okta_clientid     = var.tje_okta_clientid
+  tje_okta_orgdomain    = var.tje_okta_orgdomain
+  jsc_username          = var.jsc_username
+  jsc_password          = var.jsc_password
+  jamfpro_instance_url  = var.jamfpro_instance_url
+  jamfpro_client_id     = var.jamfpro_client_id
+  jamfpro_client_secret = var.jamfpro_client_secret
+  providers = {
+    jamfpro.jpro = jamfpro.jpro
+    jsc.jsc      = jsc.jsc
+  }
+}
+
 module "network-security-access-policy" {
   source             = "./modules/network-security-access-policy"
   entropy_string     = var.entropy_string

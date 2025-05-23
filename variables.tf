@@ -179,6 +179,11 @@ variable "include_jsc_all_services" {
   default = false
 }
 
+variable "include_jsc_all_unsupervised" {
+  type    = bool
+  default = false
+}
+
 variable "include_jsc_ap_adobe" {
   type    = bool
   default = false
