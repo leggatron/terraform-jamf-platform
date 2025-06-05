@@ -43,9 +43,16 @@ provider "jsc" {
 #   }
 # }
 
-module "super-api-role" {
-  count                 = var.include_api_role == true ? 1 : 0
-  source                = "./modules/super-api-role"
+# module "super-api-role" {
+#   count                 = var.include_api_role == true ? 1 : 0
+#   source                = "./modules/super-api-role"
+#   jamfpro_instance_url  = var.jamfpro_instance_url
+#   jamfpro_client_id     = var.jamfpro_client_id
+#   jamfpro_client_secret = var.jamfpro_client_secret
+# }
+
+module "apns" {
+  source                = "./modules/extension-attributes"
   jamfpro_instance_url  = var.jamfpro_instance_url
   jamfpro_client_id     = var.jamfpro_client_id
   jamfpro_client_secret = var.jamfpro_client_secret
