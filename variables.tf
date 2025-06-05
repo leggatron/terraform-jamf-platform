@@ -98,3 +98,8 @@ variable "include_computer_management_settings" {
   type    = bool
   default = false
 }
+
+variable "include_api_role" {
+  type    = bool
+  default = false
+}

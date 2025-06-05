@@ -21,24 +21,32 @@ provider "jsc" {
   applicationsecret = var.jsc_applicationsecret
 }
 
-module "configuration-jamf-pro-categories" {
-  count                 = var.include_categories == true ? 1 : 0
-  source                = "./modules/configuration-jamf-pro-categories"
-  jamfpro_instance_url  = var.jamfpro_instance_url
-  jamfpro_client_id     = var.jamfpro_client_id
-  jamfpro_client_secret = var.jamfpro_client_secret
-  providers = {
-    jamfpro.jpro = jamfpro.jpro
-  }
-}
+# module "configuration-jamf-pro-categories" {
+#   count                 = var.include_categories == true ? 1 : 0
+#   source                = "./modules/configuration-jamf-pro-categories"
+#   jamfpro_instance_url  = var.jamfpro_instance_url
+#   jamfpro_client_id     = var.jamfpro_client_id
+#   jamfpro_client_secret = var.jamfpro_client_secret
+#   providers = {
+#     jamfpro.jpro = jamfpro.jpro
+#   }
+# }
 
-module "configuration-jamf-pro-computer-management-settings" {
-  count                 = var.include_computer_management_settings == true ? 1 : 0
-  source                = "./modules/configuration-jamf-pro-computer-management-settings"
+# module "configuration-jamf-pro-computer-management-settings" {
+#   count                 = var.include_computer_management_settings == true ? 1 : 0
+#   source                = "./modules/configuration-jamf-pro-computer-management-settings"
+#   jamfpro_instance_url  = var.jamfpro_instance_url
+#   jamfpro_client_id     = var.jamfpro_client_id
+#   jamfpro_client_secret = var.jamfpro_client_secret
+#   providers = {
+#     jamfpro.jpro = jamfpro.jpro
+#   }
+# }
+
+module "super-api-role" {
+  count                 = var.include_api_role == true ? 1 : 0
+  source                = "./modules/super-api-role"
   jamfpro_instance_url  = var.jamfpro_instance_url
   jamfpro_client_id     = var.jamfpro_client_id
   jamfpro_client_secret = var.jamfpro_client_secret
-  providers = {
-    jamfpro.jpro = jamfpro.jpro
-  }
 }
