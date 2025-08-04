@@ -241,11 +241,16 @@ module "endpoint-security-macOS-microsoft-defender" {
 }
 
 module "management-macOS-SSOe-Okta" {
-  count                 = var.include_ssoe_okta == true ? 1 : 0
-  source                = "./modules/management-macOS-SSOe-Okta"
-  jamfpro_instance_url  = var.jamfpro_instance_url
-  jamfpro_client_id     = var.jamfpro_client_id
-  jamfpro_client_secret = var.jamfpro_client_secret
+  count                  = var.include_ssoe_okta == true ? 1 : 0
+  source                 = "./modules/management-macOS-SSOe-Okta"
+  jamfpro_instance_url   = var.jamfpro_instance_url
+  jamfpro_client_id      = var.jamfpro_client_id
+  jamfpro_client_secret  = var.jamfpro_client_secret
+  tje_okta_orgdomain     = var.tje_okta_orgdomain
+  tje_okta_clientid      = var.tje_okta_clientid
+  tje_okta_orgname       = var.tje_okta_orgname
+  tje_okta_scepdomain    = var.tje_okta_scepdomain
+  tje_okta_scepchallenge = var.tje_okta_scepchallenge
   providers = {
     jamfpro.jpro = jamfpro.jpro
   }

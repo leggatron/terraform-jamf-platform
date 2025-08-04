@@ -14,6 +14,19 @@ resource "jamfpro_category" "category_ssoe" {
   priority = 9
 }
 
+locals {
+  domain       = regex("^https?://([^/]+)", var.tje_okta_orgdomain)[0]
+  domain_clean = regex("^https?://([^/]*\\.com)", var.tje_okta_orgdomain)[0]
+}
+
+output "extracted_domain" {
+  value = local.domain
+}
+
+output "clean_domain" {
+  value = local.domain_clean
+}
+
 ## Create scripts
 resource "jamfpro_script" "script_ssoe-okta" {
   name            = "SSOe-(Okta)"
@@ -45,7 +58,7 @@ resource "jamfpro_smart_computer_group" "ssoe-okta" {
 ## Define configuration profiles
 locals {
   ssoe-okta_dict = {
-    "SSOe-Okta" = "${path.module}/support_files/computer_config_profiles/SSOe-(Okta).mobileconfig"
+    "SSOe-Okta" = "${path.module}/support_files/computer_config_profiles/SSOe-(Okta).tpl"
   }
 }
 

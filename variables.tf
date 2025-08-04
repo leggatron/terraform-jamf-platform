@@ -121,6 +121,21 @@ variable "tje_okta_orgdomain" {
   default = "sso.tryjamf.com"
 }
 
+variable "tje_okta_orgname" {
+  type    = string
+  default = ""
+}
+
+variable "tje_okta_scepdomain" {
+  type    = string
+  default = ""
+}
+
+variable "tje_okta_scepchallenge" {
+  type    = string
+  default = ""
+}
+
 variable "include_mobile_cis_lvl1_benchmark" {
   type    = bool
   default = false

@@ -7,7 +7,7 @@
     <key>PayloadType</key>
     <string>Configuration</string>
     <key>PayloadOrganization</key>
-    <string>The Jamf Experience</string>
+    <string>${var.tje_okta_orgname}</string>
     <key>PayloadIdentifier</key>
     <string>FF165609-15A2-4213-9157-6A5A699352DF</string>
     <key>PayloadDisplayName</key>
@@ -30,7 +30,7 @@
         <key>PayloadType</key>
         <string>com.apple.loginitems.managed</string>
         <key>PayloadOrganization</key>
-        <string>Insert Org Name</string>
+        <string>${var.tje_okta_orgname}</string>
         <key>PayloadIdentifier</key>
         <string>F0C88545-55BC-4ED5-BAB0-C864202F6D59</string>
         <key>PayloadDisplayName</key>
@@ -83,7 +83,7 @@
         <key>PayloadType</key>
         <string>com.apple.security.scep</string>
         <key>PayloadOrganization</key>
-        <string>Insert Org Name</string>
+        <string>${var.tje_okta_orgname}</string>
         <key>PayloadIdentifier</key>
         <string>831532EB-835F-460A-BAF8-BB67539D1226</string>
         <key>PayloadDisplayName</key>
@@ -99,9 +99,9 @@
           <key>Name</key>
           <string>Okta Device Management Attestation</string>
           <key>URL</key>
-          <string>https://your-org.okta.com/pki/9CD2C9B157304554ABE2693095021CE0E5F5BBC0/scep/racibq1008DVO5DuK1d7</string>
+          <string>${var.tje_okta_scepdomain}</string>
           <key>Challenge</key>
-          <string>1b5w100qBp9bo4s5dHcbVUuzs_2xODwKLMqYfzHP9NM</string>
+          <string>${var.tje_okta_scepchallenge}</string>
           <key>Key Type</key>
           <string>RSA</string>
           <key>Key Usage</key>
@@ -133,7 +133,7 @@
         <key>PayloadIdentifier</key>
         <string>F68A8AC7-3F4D-4111-A566-D9322D97FB10</string>
         <key>PayloadOrganization</key>
-        <string>JAMF Software</string>
+        <string>${var.tje_okta_orgname}</string>
         <key>PayloadType</key>
         <string>com.apple.extensiblesso</string>
         <key>PayloadUUID</key>
@@ -148,7 +148,7 @@
         <string>Credential</string>
         <key>Hosts</key>
         <array>
-          <string>your-org.okta.com</string>
+          <string>${domain_clean}</string>
         </array>
         <key>URLs</key>
         <array/>
@@ -159,7 +159,7 @@
         <key>PayloadIdentifier</key>
         <string>D948CCF3-3F77-4B4D-B2E3-3D2684C266CC</string>
         <key>PayloadOrganization</key>
-        <string>JAMF Software</string>
+        <string>${var.tje_okta_orgname}</string>
         <key>PayloadType</key>
         <string>com.apple.ManagedClient.preferences</string>
         <key>PayloadUUID</key>
@@ -180,7 +180,7 @@
                   <key>OktaVerify.LaunchOptions</key>
                   <string>HideMainWindow</string>
                   <key>OktaVerify.OrgUrl</key>
-                  <string>your-org.okta.com</string>
+                  <string>${domain_clean}</string>
                 </dict>
               </dict>
             </array>
@@ -193,7 +193,7 @@
         <key>PayloadIdentifier</key>
         <string>BD3D5AF1-6877-4B55-A6B4-D5202380F205</string>
         <key>PayloadOrganization</key>
-        <string>JAMF Software</string>
+        <string>${var.tje_okta_orgname}</string>
         <key>PayloadType</key>
         <string>com.apple.ManagedClient.preferences</string>
         <key>PayloadUUID</key>
@@ -214,7 +214,7 @@
                   <key>OktaVerify.LaunchOptions</key>
                   <string>HideMainWindow</string>
                   <key>OktaVerify.OrgUrl</key>
-                  <string>your-org.okta.com</string>
+                  <string>${var.tje_okta_orgname}</string>
                 </dict>
               </dict>
             </array>

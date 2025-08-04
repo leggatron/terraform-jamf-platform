@@ -28,9 +28,28 @@ variable "jamfpro_client_secret" {
   default     = ""
 }
 
-variable "random_string" {
+## Define Okta-related variables
+variable "tje_okta_clientid" {
+  type    = string
+  default = "0oadb9ke61k2h6JiT1d7"
+}
+
+variable "tje_okta_orgdomain" {
   type    = string
   default = ""
 }
 
+variable "tje_okta_orgname" {
+  type    = string
+  default = ""
+}
 
+variable "tje_okta_scepdomain" {
+  type    = string
+  default = ""
+}
+
+variable "tje_okta_scepchallenge" {
+  type    = string
+  default = ""
+}
