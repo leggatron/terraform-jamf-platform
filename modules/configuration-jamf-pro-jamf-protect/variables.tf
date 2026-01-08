@@ -1,4 +1,4 @@
-variable "jamfpro_instance_fqdn" {
+variable "jamfpro_instance_url" {
   description = "Jamf Pro URL name."
   type        = string
 }
