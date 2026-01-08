@@ -1,5 +1,5 @@
 ## Define Jamf Pro provider variables (populated by .tfvars file)
-variable "jamfpro_instance_fqdn" {
+variable "jamfpro_instance_url" {
   description = "Jamf Pro Instance name."
   type        = string
   default     = ""
@@ -52,13 +52,13 @@ variable "jsc_password" {
   default   = ""
 }
 
-variable "jsc_applicationid" {
+variable "jsc_application_id" {
   type      = string
   sensitive = true
   default   = ""
 }
 
-variable "jsc_applicationsecret" {
+variable "jsc_application_secret" {
   type      = string
   sensitive = true
   default   = ""

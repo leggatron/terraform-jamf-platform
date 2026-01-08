@@ -32,7 +32,7 @@ To run these successfully in your environment, include the following:
 ## Jamf Pro provider root configuration
 provider "jamfpro" {
   alias                                = "jpro"
-  jamfpro_instance_fqdn                = var.jamfpro_instance_fqdn
+  jamfpro_instance_url                = var.jamfpro_instance_url
   auth_method                          = var.jamfpro_auth_method
   basic_auth_username                  = var.jamfpro_username
   basic_auth_password                  = var.jamfpro_password
@@ -50,15 +50,15 @@ provider "jsc" {
   alias             = "jsc"
   username          = var.jsc_username
   password          = var.jsc_password
-  applicationid     = var.jsc_applicationid
-  applicationsecret = var.jsc_applicationsecret
+  application_id     = var.jsc_application_id
+  application_secret = var.jsc_application_secret
 }
 ```
 3. Add a ```providers``` block to each sub-module call. Here's an example:
 ```
 module "configuration-jamf-security-cloud-jamf-pro" {
   source                = "module/source/file/path"
-  jamfpro_instance_fqdn  = var.jamfpro_instance_fqdn
+  jamfpro_instance_url  = var.jamfpro_instance_url
   jamfpro_client_id     = var.jamfpro_client_id
   jamfpro_client_secret = var.jamfpro_client_secret
   jsc_username          = var.jsc_username
@@ -115,7 +115,7 @@ Copy and paste the following data then customize it with your own credentials an
 ```
 ## Jamf Pro Account Details
 jamfpro_auth_method   = "" ## oauth2 or basic
-jamfpro_instance_fqdn  = ""
+jamfpro_instance_url  = ""
 jamfpro_client_id     = ""
 jamfpro_client_secret = ""
 jamfpro_username      = ""
@@ -129,8 +129,8 @@ jamfprotect_client_password = ""
 ## Jamf Security Cloud (RADAR) Account Details
 jsc_username          = ""
 jsc_password          = ""
-jsc_applicationid     = ""
-jsc_applicationsecret = ""
+jsc_application_id     = ""
+jsc_application_secret = ""
 
 ## tryjamf Okta Account Details
 okta_client_id  = ""
