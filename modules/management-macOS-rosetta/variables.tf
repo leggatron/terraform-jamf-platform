@@ -1,5 +1,5 @@
 ## Define miscellaneous variables
-variable "jamfpro_instance_fqdn" {
+variable "jamfpro_instance_url" {
   description = "Jamf Pro Instance name."
   type        = string
 }
