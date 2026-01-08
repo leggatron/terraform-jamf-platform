@@ -27,7 +27,7 @@ credentials:
     display_name: Jamf Protect Tenant URL
     display_desc: This is the URL you navigate to for Jamf Protect
 
-  - key: jamfprotect_client_id
+  - key: jamfprotect_clientid
     type: <string>
     presence: required
     content: The Client ID created in the Jamf Protect console
@@ -54,55 +54,6 @@ credentials:
     content: The password for Jamf Security Cloud authentication
     display_name: Jamf Security Cloud Password
     display_desc: Password for authenticating with Jamf Security Cloud
-
-  - key: okta_client_id
-    type: <string>
-    presence: optional
-    content: Jamf Trust Okta Client ID
-    display_name: Okta Client ID for enabling Jamf Trust SSO
-    display_desc: Password for authenticating with Jamf Trust
-
-  - key: okta_org_domain
-    type: <string>
-    presence: optional
-    content: Okta Organization Domain
-    display_name: Okta Organization Domain
-    display_desc: Example "https://company.okta.com"
-
-  - key: okta_short_url
-    type: <string>
-    presence: optional
-    content: Okta Short URL
-    display_name: Okta Organization Domain - Short URL
-    display_desc: Example "company.okta.com"
-
-  - key: okta_org_domain
-    type: <string>
-    presence: optional
-    content: Okta Organization Domain
-    display_name: Okta Organization Domain
-    display_desc: Example "https://sso.tryjamf.com"
-
-  - key: okta_org_name
-    type: <string>
-    presence: optional
-    content: Organization Name
-    display_name: Organization
-    display_desc: Example "Company Name"
-
-  - key: okta_psso_client
-    type: <string>
-    presence: optional
-    content: Okta PSSO Client ID
-    display_name: Okta PSSO Client ID
-    display_desc: Alphanumeric Client ID
-
-  - key: okta_scep_url
-    type: <string>
-    presence: optional
-    content: Okta SCEP URL
-    display_name: Okta SCEP URL - NOT Challenge
-    display_desc: Example "https://company.okta.com/pki/alphanumericidentifier"
 
 options:
   ## Onboarder Parent Modules
@@ -390,3 +341,34 @@ options:
     category: Browsers
     display_name: Microsoft Edge
     display_desc: Configures Microsoft Edge in Jamf Pro to be deployable to managed computers.
+
+crowdstrike:
+  - key: include_crowdstrike
+    type: <boolean>
+    presence: optional
+    module_name: module.endpoint-security-macOS-crowdstrike
+    required_provider: jpro
+    category: Security
+    display_name: Deploy CrowdStrike Falcon
+    display_desc: Configures CrowdStrike Falcon sensor deployment for macOS endpoint protection. Creates necessary scripts, configuration profiles, and policies for automated Falcon sensor installation and management.
+
+  - key: falcon_api_client_id
+    type: <string>
+    presence: required
+    content: The Client ID from your CrowdStrike API Client
+    display_name: Falcon API Client ID
+    display_desc: Client ID used for CrowdStrike Falcon API access
+
+  - key: falcon_api_secret
+    type: <string>
+    presence: required
+    content: The Client Secret from your CrowdStrike API Client
+    display_name: Falcon API Secret
+    display_desc: Client Secret used for CrowdStrike Falcon API access
+
+  - key: falcon_customer_id
+    type: <string>
+    presence: required
+    content: Your CrowdStrike Customer ID without the checksum
+    display_name: Falcon Customer ID (CID)
+    display_desc: CrowdStrike Customer ID used for Falcon sensor deployment
