@@ -50,8 +50,8 @@ provider "jsc" {
   alias             = "jsc"
   username          = var.jsc_username
   password          = var.jsc_password
-  applicationid     = var.jsc_applicationid
-  applicationsecret = var.jsc_applicationsecret
+  application_id     = var.jsc_application_id
+  application_secret = var.jsc_application_secret
 }
 ```
 3. Add a ```providers``` block to each sub-module call. Here's an example:
@@ -129,8 +129,8 @@ jamfprotect_client_password = ""
 ## Jamf Security Cloud (RADAR) Account Details
 jsc_username          = ""
 jsc_password          = ""
-jsc_applicationid     = ""
-jsc_applicationsecret = ""
+jsc_application_id     = ""
+jsc_application_secret = ""
 
 ## tryjamf Okta Account Details
 okta_client_id  = ""

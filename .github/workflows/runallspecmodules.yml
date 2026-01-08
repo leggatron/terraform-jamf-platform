@@ -67,8 +67,8 @@ jobs:
                           -var "jamfpro_client_secret=${{ secrets.jamfpro_client_secret }}" \
                           -var "jsc_username=${{ secrets.jsc_username }}" \
                           -var "jsc_password=${{ secrets.jsc_password }}" \
-                          -var "jsc_application__id=${{ secrets.jsc_application_id }}" \
-                          -var "jsc_application__secret=${{ secrets.jsc_application_secret }}" \
+                          -var "jsc_application_id=${{ secrets.jsc_application_id }}" \
+                          -var "jsc_application_secret=${{ secrets.jsc_application_secret }}" \
                           -var "jamfprotect_url=${{ secrets.jamfprotect_url }}" \
                           -var "jamfprotect_client_id=${{ secrets.jamfprotect_client_id }}" \
                           -var "jamfprotect_client_password=${{ secrets.jamfprotect_client_password }}" \
