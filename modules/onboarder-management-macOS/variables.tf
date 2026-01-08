@@ -51,13 +51,13 @@ variable "jsc_password" {
   default   = ""
 }
 
-variable "jsc_applicationid" {
+variable "jsc_application_id" {
   type      = string
   sensitive = true
   default   = ""
 }
 
-variable "jsc_applicationsecret" {
+variable "jsc_application_secret" {
   type      = string
   sensitive = true
   default   = ""
