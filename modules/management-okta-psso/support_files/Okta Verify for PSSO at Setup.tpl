@@ -8,7 +8,7 @@
 			<key>Configuration</key>
 			<array>
 				<dict>
-					<key>application_identifier</key>
+					<key>ApplicationIdentifier</key>
 					<string>B7F62B65BN.com.okta.mobile</string>
 					<key>AssociatedDomains</key>
 					<array>
@@ -16,7 +16,7 @@
 					</array>
 				</dict>
 				<dict>
-					<key>application_identifier</key>
+					<key>ApplicationIdentifier</key>
 					<string>B7F62B65BN.com.okta.mobile.auth-service-extension</string>
 					<key>AssociatedDomains</key>
 					<array>
