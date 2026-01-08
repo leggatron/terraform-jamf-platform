@@ -30,9 +30,9 @@ provider "jamfpro" {
 
 # JSC provider root configuration
 provider "jsc" {
-  alias              = "jsc"
-  username           = var.jsc_username
-  password           = var.jsc_password
-  application_id     = var.jsc_application_id
-  application_secret = var.jsc_application_secret
+  alias             = "jsc"
+  username          = var.jsc_username
+  password          = var.jsc_password
+  applicationid     = var.jsc_application_id
+  applicationsecret = var.jsc_application_secret
 }
