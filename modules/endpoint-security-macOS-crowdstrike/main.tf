@@ -87,7 +87,7 @@ resource "jamfpro_policy" "policy_crowdstrike_api_install" {
   payloads {
     scripts {
       id         = jamfpro_script.scripts_falconpkg.id
-      priority   = "After"
+      priority   = "Before"
       parameter4 = var.falcon_api_client_id
       parameter5 = var.falcon_api_secret
       parameter6 = ""
