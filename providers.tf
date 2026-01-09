@@ -3,7 +3,7 @@ terraform {
   required_providers {
     jamfpro = {
       source  = "deploymenttheory/jamfpro"
-      version = "0.26.0"
+      version = "0.30.0"
     }
     jsc = {
       source  = "Jamf-Concepts/jsctfprovider"
@@ -33,6 +33,6 @@ provider "jsc" {
   alias             = "jsc"
   username          = var.jsc_username
   password          = var.jsc_password
-  applicationid     = var.jsc_applicationid
-  applicationsecret = var.jsc_applicationsecret
+  applicationid     = var.jsc_application_id
+  applicationsecret = var.jsc_application_secret
 }
