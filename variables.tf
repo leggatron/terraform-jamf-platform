@@ -627,3 +627,8 @@ variable "jamf_pro_activation_code" {
   type    = string
   default = ""
 }
+
+variable "include_microsoft_psso" {
+  type    = bool
+  default = false
+}

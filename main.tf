@@ -274,6 +274,18 @@ module "management-okta_psso" {
   }
 }
 
+module "management-microsoft_psso" {
+  count                 = var.include_microsoft_psso == true ? 1 : 0
+  source                = "./modules/management-microsoft-psso"
+  jamfpro_instance_url  = var.jamfpro_instance_url
+  jamfpro_client_id     = var.jamfpro_client_id
+  jamfpro_client_secret = var.jamfpro_client_secret
+  providers = {
+    jamfpro.jpro = jamfpro.jpro
+  }
+  
+}
+
 module "endpoint-security-macOS-crowdstrike" {
   count                 = var.include_crowdstrike == true ? 1 : 0
   source                = "./modules/endpoint-security-macOS-crowdstrike"
