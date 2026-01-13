@@ -37,7 +37,7 @@ resource "jamfpro_script" "scripts_falconcid" {
   priority        = "AFTER"
   info            = ""
   notes           = ""
-  parameter4      = "CCID"
+  parameter4      = "FALCON CUSTOMER ID"
   parameter5      = ""
   parameter6      = ""
   parameter7      = ""
