@@ -311,6 +311,19 @@ module "management-app-installers" {
   }
 }
 
+module "management-app-installers-google-chrome-cloud-management" {
+  count                                           = var.include_google_chrome_cloud_management == true ? 1 : 0
+  source                                          = "./modules/management-app-installers-google-chrome-cloud-management"
+  jamfpro_instance_url                            = var.jamfpro_instance_url
+  jamfpro_client_id                               = var.jamfpro_client_id
+  jamfpro_client_secret                           = var.jamfpro_client_secret
+  include_google_chrome                           = var.include_google_chrome
+  google_chrome_cloud_management_enrollment_token = var.google_chrome_cloud_management_enrollment_token
+  providers = {
+    jamfpro.jpro = jamfpro.jpro
+  }
+}
+
 ## Begin Jamf Security Cloud Configuration
 
 ## Create UEMC and Okta integrations

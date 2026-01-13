@@ -438,6 +438,11 @@ variable "include_google_chrome" {
   default = false
 }
 
+variable "include_google_chrome_cloud_management" {
+  type    = bool
+  default = false
+}
+
 variable "include_mozilla_firefox" {
   type    = bool
   default = false
@@ -601,6 +606,13 @@ variable "app_installers" {
   description = "Set of selected App Installers"
   type        = list(string)
   default     = []
+}
+
+variable "google_chrome_cloud_management_enrollment_token" {
+  description = "The enrollment token for Google Chrome Cloud Management"
+  type        = string
+  sensitive   = true
+  default     = ""
 }
 
 variable "access_policies" {
