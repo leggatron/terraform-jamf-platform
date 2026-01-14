@@ -14,7 +14,7 @@
             <key>PayloadType</key>
             <string>com.apple.ManagedClient.preferences</string>
             <key>PayloadUUID</key>
-            <string>${payload_uuid}</string>
+            <string>A27F524F-7A54-4E9A-B459-B50A321C4295</string>
             <key>PayloadVersion</key>
             <integer>1</integer>
             <key>PayloadContent</key>
@@ -44,7 +44,7 @@
     <key>PayloadEnabled</key>
     <true/>
     <key>PayloadIdentifier</key>
-    <string>${profile_uuid}</string>
+    <string>D71143E9-8F41-47EE-8CD2-69495E82C6AC</string>
     <key>PayloadOrganization</key>
     <string>JAMF Software</string>
     <key>PayloadRemovalDisallowed</key>
@@ -54,7 +54,7 @@
     <key>PayloadType</key>
     <string>Configuration</string>
     <key>PayloadUUID</key>
-    <string>${profile_uuid}</string>
+    <string>D71143E9-8F41-47EE-8CD2-69495E82C6AC</string>
     <key>PayloadVersion</key>
     <integer>1</integer>
 </dict>
