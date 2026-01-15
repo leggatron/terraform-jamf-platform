@@ -224,6 +224,33 @@ module "configuration-jamf-pro-computer-management-settings" {
   }
 }
 
+# Workbrew Stage 1: Create API Role and Integration (deploy first, get credentials)
+module "configuration-jamf-pro-api-role-client-workbrew" {
+  count                 = var.include_workbrew_api_role_client == true ? 1 : 0
+  source                = "./modules/configuration-jamf-pro-api-role-client-workbrew"
+  jamfpro_instance_url  = var.jamfpro_instance_url
+  jamfpro_auth_method   = var.jamfpro_auth_method
+  jamfpro_client_id     = var.jamfpro_client_id
+  jamfpro_client_secret = var.jamfpro_client_secret
+  providers = {
+    jamfpro.jpro = jamfpro.jpro
+  }
+}
+
+# Workbrew Stage 2: Deploy management resources (after uploading credentials to Workbrew Console)
+module "management-macOS-workbrew" {
+  count                      = var.include_workbrew == true ? 1 : 0
+  source                     = "./modules/management-macOS-workbrew"
+  jamfpro_instance_url       = var.jamfpro_instance_url
+  jamfpro_auth_method        = var.jamfpro_auth_method
+  jamfpro_client_id          = var.jamfpro_client_id
+  jamfpro_client_secret      = var.jamfpro_client_secret
+  workbrew_workspace_api_key = var.workbrew_workspace_api_key
+  providers = {
+    jamfpro.jpro = jamfpro.jpro
+  }
+}
+
 module "endpoint-security-macOS-filevault" {
   count                 = var.include_filevault == true ? 1 : 0
   source                = "./modules/endpoint-security-macOS-filevault"
