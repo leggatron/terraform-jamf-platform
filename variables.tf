@@ -438,6 +438,11 @@ variable "include_google_chrome" {
   default = false
 }
 
+variable "include_google_chrome_cloud_management" {
+  type    = bool
+  default = false
+}
+
 variable "include_mozilla_firefox" {
   type    = bool
   default = false
@@ -553,6 +558,18 @@ variable "include_defender" {
   default = false
 }
 
+variable "defender_onboarding_plist_path" {
+  description = "Path to the Microsoft Defender ATP onboarding plist file"
+  type        = string
+  default     = ""
+}
+
+variable "defender_onboarding_plist" {
+  description = "Base64-encoded Microsoft Defender ATP onboarding plist content"
+  type        = string
+  default     = ""
+}
+
 variable "include_crowdstrike" {
   type    = bool
   default = false
@@ -603,6 +620,13 @@ variable "app_installers" {
   default     = []
 }
 
+variable "google_chrome_cloud_management_enrollment_token" {
+  description = "The enrollment token for Google Chrome Cloud Management"
+  type        = string
+  sensitive   = true
+  default     = ""
+}
+
 variable "access_policies" {
   type    = list(string)
   default = []
@@ -629,6 +653,19 @@ variable "jamf_pro_activation_code" {
 }
 
 variable "include_microsoft_psso" {
+variable "workbrew_workspace_api_key" {
+  description = "Workbrew Workspace API Key"
+  type        = string
+  sensitive   = true
+  default     = ""
+}
+
+variable "include_workbrew" {
+  type    = bool
+  default = false
+}
+
+variable "include_workbrew_api_role_client" {
   type    = bool
   default = false
 }
