@@ -644,6 +644,7 @@ variable "workbrew_workspace_api_key" {
   description = "Workbrew Workspace API Key"
   type        = string
   sensitive   = true
+  default     = ""
 }
 
 variable "include_workbrew" {
