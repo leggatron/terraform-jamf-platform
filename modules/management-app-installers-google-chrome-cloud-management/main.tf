@@ -56,7 +56,7 @@ resource "jamfpro_macos_configuration_profile_plist" "google_chrome_cloud_manage
 
 ## Create Google Chrome App Installer
 resource "jamfpro_app_installer" "google_chrome" {
-  count           = var.include_google_chrome != true ? 1 : 0
+  count           = var.include_google_chrome == true || contains(var.app_installers, "Google Chrome") ? 0 : 1
   name            = "Google Chrome"
   app_title_name  = "Google Chrome"
   enabled         = true

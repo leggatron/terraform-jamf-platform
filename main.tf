@@ -320,6 +320,7 @@ module "management-app-installers-google-chrome-cloud-management" {
   jamfpro_client_id                               = var.jamfpro_client_id
   jamfpro_client_secret                           = var.jamfpro_client_secret
   include_google_chrome                           = var.include_google_chrome
+  app_installers                                  = var.app_installers
   google_chrome_cloud_management_enrollment_token = var.google_chrome_cloud_management_enrollment_token
   providers = {
     jamfpro.jpro = jamfpro.jpro
