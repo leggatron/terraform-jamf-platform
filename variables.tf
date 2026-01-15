@@ -653,6 +653,10 @@ variable "jamf_pro_activation_code" {
 }
 
 variable "include_microsoft_psso" {
+  type    = bool
+  default = false
+}
+
 variable "workbrew_workspace_api_key" {
   description = "Workbrew Workspace API Key"
   type        = string
