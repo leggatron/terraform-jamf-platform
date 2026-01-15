@@ -31,3 +31,9 @@ variable "google_chrome_cloud_management_enrollment_token" {
   type        = string
   sensitive   = true
 }
+
+variable "app_installers" {
+  description = "Set of selected App Installers"
+  type        = list(string)
+  default     = []
+}
