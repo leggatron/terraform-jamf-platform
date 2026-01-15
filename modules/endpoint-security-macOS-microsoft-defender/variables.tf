@@ -29,4 +29,14 @@ variable "random_string" {
   default = ""
 }
 
+variable "defender_onboarding_plist_path" {
+  description = "Path to the Microsoft Defender ATP onboarding plist file"
+  type        = string
+  default     = ""
+}
 
+variable "defender_onboarding_plist" {
+  description = "Base64-encoded Microsoft Defender ATP onboarding plist content"
+  type        = string
+  default     = ""
+}
