@@ -30,7 +30,7 @@ variable "workbrew_workspace_api_key" {
   description = "Workbrew Workspace API Key"
   type        = string
   sensitive   = true
-  default     = "" 
+  default     = ""
 }
 
 variable "random_string" {
