@@ -639,3 +639,19 @@ variable "jamf_pro_activation_code" {
   type    = string
   default = ""
 }
+
+variable "workbrew_workspace_api_key" {
+  description = "Workbrew Workspace API Key"
+  type        = string
+  sensitive   = true
+}
+
+variable "include_workbrew" {
+  type    = bool
+  default = false
+}
+
+variable "include_workbrew_api_role_client" {
+  type    = bool
+  default = false
+}
