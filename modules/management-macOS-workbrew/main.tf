@@ -22,7 +22,7 @@ resource "jamfpro_script" "workbrew_script" {
   name            = "Workbrew Activation"
   script_contents = file("${path.module}/support_files/Workbrew Activation.sh")
   category_id     = jamfpro_category.workbrew_category.id
-  os_requirements = "0"
+  os_requirements = ""
   priority        = "BEFORE"
   info            = "Script to activate Workbrew agent on macOS devices."
   notes           = ""
