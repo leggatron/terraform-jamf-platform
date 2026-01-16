@@ -72,33 +72,33 @@ resource "jamfpro_package" "workbrew_package" {
 }
 
 resource "jamfpro_computer_extension_attribute" "workbrew_installed_ea" {
-  name                  = "Workbrew Installed"
-  enabled               = true
-  input_type            = "SCRIPT"
-  description           = "Checks if the Workbrew agent is installed."
-  script_contents       = file("${path.module}/support_files/Workbrew Installed.sh")
+  name                   = "Workbrew Installed"
+  enabled                = true
+  input_type             = "SCRIPT"
+  description            = "Checks if the Workbrew agent is installed."
+  script_contents        = file("${path.module}/support_files/Workbrew Installed.sh")
   inventory_display_type = "EXTENSION_ATTRIBUTES"
-  data_type             = "STRING"
+  data_type              = "STRING"
 }
 
 resource "jamfpro_computer_extension_attribute" "workbrew_version_ea" {
-  name = "Workbrew Version"
-  enabled = true
-  input_type = "SCRIPT"
-  description = "Retrieves the installed version of the Workbrew."
-  script_contents = file("${path.module}/support_files/Workbrew Version.sh")
+  name                   = "Workbrew Version"
+  enabled                = true
+  input_type             = "SCRIPT"
+  description            = "Retrieves the installed version of the Workbrew."
+  script_contents        = file("${path.module}/support_files/Workbrew Version.sh")
   inventory_display_type = "EXTENSION_ATTRIBUTES"
-  data_type = "INTEGER"
+  data_type              = "INTEGER"
 }
 
 resource "jamfpro_computer_extension_attribute" "homebrew_version_ea" {
-  name = "Homebrew Version"
-  enabled = true
-  input_type = "SCRIPT"
-  description = "Retrieves the installed version of Homebrew."
-  script_contents = file("${path.module}/support_files/Homebrew Version.sh")
+  name                   = "Homebrew Version"
+  enabled                = true
+  input_type             = "SCRIPT"
+  description            = "Retrieves the installed version of Homebrew."
+  script_contents        = file("${path.module}/support_files/Homebrew Version.sh")
   inventory_display_type = "EXTENSION_ATTRIBUTES"
-  data_type = "STRING"
+  data_type              = "STRING"
 }
 
 resource "jamfpro_macos_configuration_profile_plist" "workbrew_managed_login_item" {
@@ -146,7 +146,7 @@ resource "jamfpro_smart_computer_group" "workbrew_installed_smart_computer_group
     and_or      = "and"
     priority    = 0
   }
-  
+
 }
 
 resource "jamfpro_smart_computer_group" "workbrew_not_installed_smart_computer_group" {
@@ -165,7 +165,7 @@ resource "jamfpro_smart_computer_group" "workbrew_not_installed_smart_computer_g
     and_or      = "or"
     priority    = 1
   }
-  
+
 }
 
 resource "jamfpro_policy" "workbrew_install_policy" {
