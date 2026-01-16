@@ -5,9 +5,15 @@ This module deploys all necessary Jamf Pro resources to manage and deploy Workbr
 ## What This Module Creates
 
 - **Category**: "Workbrew" for organizing all Workbrew-related resources
-- **Script**: Workbrew activation script for device enrollment
+- **Scripts**: 
+  - Workbrew activation script for device enrollment
+  - Extension attribute scripts for Homebrew and Workbrew version tracking
 - **Package**: Workbrew installer package retrieved from Workbrew CDN
 - **Configuration Profile**: Managed login item profile for Workbrew agent
+- **Extension Attributes**:
+  - Workbrew Installed (detects if Workbrew is present)
+  - Workbrew Version (reports installed Workbrew version)
+  - Homebrew Version (reports installed Homebrew version)
 - **Smart Computer Group**: Targets eligible macOS devices for Workbrew deployment
 - **Policy**: Automated deployment policy to install and configure Workbrew
 
