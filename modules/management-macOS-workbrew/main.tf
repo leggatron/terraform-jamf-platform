@@ -22,7 +22,7 @@ resource "jamfpro_script" "workbrew_script" {
   name            = "Workbrew Activation"
   script_contents = file("${path.module}/support_files/Workbrew Activation.sh")
   category_id     = jamfpro_category.workbrew_category.id
-  os_requirements = "0"
+  os_requirements = ""
   priority        = "BEFORE"
   info            = "Script to activate Workbrew agent on macOS devices."
   notes           = ""
@@ -71,6 +71,36 @@ resource "jamfpro_package" "workbrew_package" {
   suppress_updates      = false
 }
 
+resource "jamfpro_computer_extension_attribute" "workbrew_installed_ea" {
+  name                   = "Workbrew Installed"
+  enabled                = true
+  input_type             = "SCRIPT"
+  description            = "Checks if the Workbrew agent is installed."
+  script_contents        = file("${path.module}/support_files/Workbrew Installed.sh")
+  inventory_display_type = "EXTENSION_ATTRIBUTES"
+  data_type              = "STRING"
+}
+
+resource "jamfpro_computer_extension_attribute" "workbrew_version_ea" {
+  name                   = "Workbrew Version"
+  enabled                = true
+  input_type             = "SCRIPT"
+  description            = "Retrieves the installed version of the Workbrew."
+  script_contents        = file("${path.module}/support_files/Workbrew Version.sh")
+  inventory_display_type = "EXTENSION_ATTRIBUTES"
+  data_type              = "INTEGER"
+}
+
+resource "jamfpro_computer_extension_attribute" "homebrew_version_ea" {
+  name                   = "Homebrew Version"
+  enabled                = true
+  input_type             = "SCRIPT"
+  description            = "Retrieves the installed version of Homebrew."
+  script_contents        = file("${path.module}/support_files/Homebrew Version.sh")
+  inventory_display_type = "EXTENSION_ATTRIBUTES"
+  data_type              = "STRING"
+}
+
 resource "jamfpro_macos_configuration_profile_plist" "workbrew_managed_login_item" {
   name                = "Workbrew Managed Login Item"
   description         = ""
@@ -105,6 +135,37 @@ resource "jamfpro_smart_computer_group" "workbrew_target_smart_computer_group" {
     and_or      = "and"
     priority    = 1
   }
+}
+
+resource "jamfpro_smart_computer_group" "workbrew_installed_smart_computer_group" {
+  name = "Workbrew Installed"
+  criteria {
+    name        = jamfpro_computer_extension_attribute.workbrew_installed_ea.name
+    search_type = "is"
+    value       = "Installed"
+    and_or      = "and"
+    priority    = 0
+  }
+
+}
+
+resource "jamfpro_smart_computer_group" "workbrew_not_installed_smart_computer_group" {
+  name = "Workbrew Not Installed"
+  criteria {
+    name        = jamfpro_computer_extension_attribute.workbrew_installed_ea.name
+    search_type = "is"
+    value       = "Not Installed"
+    and_or      = "or"
+    priority    = 0
+  }
+  criteria {
+    name        = jamfpro_computer_extension_attribute.workbrew_installed_ea.name
+    search_type = "is"
+    value       = ""
+    and_or      = "or"
+    priority    = 1
+  }
+
 }
 
 resource "jamfpro_policy" "workbrew_install_policy" {
